@@ -1,15 +1,36 @@
+<div class="top-menu">
 
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-  
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    
-    <input class="demo" value="test">
-         
+  <img class="logo"
+    src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
+
   </div>
-</main>
 
-<router-outlet />
+  <div>
+
+    <div class="demo">
+
+
+      <button (click)="onEditCourse()" i18n>Edit Course</button>
+
+    </div>
+
+    <div class="courses">
+
+      @for (course of  courses  ; track course) {
+        <course-card
+          (courseChanged)="save($event)"
+          type="beginner"
+          [course]="course">
+        <course-image [src]="course.iconUrl"></course-image>
+      </course-card>
+    }
+
+
+  </div>
+
+
+</div>
+
+
+
+
